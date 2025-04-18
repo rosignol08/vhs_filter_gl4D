@@ -116,7 +116,8 @@ static void draw(void) {
   glBindTexture(GL_TEXTURE_2D, _texId[0]); /* le input */
   glUniform1i(glGetUniformLocation(_pId[1], "tex"), 0); // le 0 correspond à glActiveTexture(GL_TEXTURE0);
   glUniform1f(glGetUniformLocation(_pId[1], "time"), -(t/1000.0f));
-  glUniform3fv(glGetUniformLocation(_pId[1], "rgb_shift"), 1, (GLfloat[]){0.0f, 0.05f, 0.05f}); //t/untruc, t/(untruc/2), t/(untruc/3
+  glUniform3fv(glGetUniformLocation(_pId[1], "rgb_shift_horison"), 1, (GLfloat[]){0.0f, 0.0f, 0.01f}); //t/untruc, t/(untruc/2), t/(untruc/3
+  glUniform3fv(glGetUniformLocation(_pId[1], "rgb_shift_verti"), 1, (GLfloat[]){0.0f, 0.0f, 0.01f});
   gl4dgDraw(_quad);
   glBindTexture(GL_TEXTURE_2D, 0);
   

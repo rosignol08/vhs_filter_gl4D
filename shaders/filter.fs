@@ -2,14 +2,12 @@
 // https://www.shadertoy.com/view/MdffD7
 // Fork of FMS_Cat's VCR distortion shader
 
-
-// TODO: Add uniforms for tape crease discoloration and image jiggle
-
 uniform sampler2D screen_texture;
 
 uniform vec2 vhs_resolution = vec2(320.0, 240.0);
 
-uniform vec3 rgb_shift = vec3(0.0, 0.003, 0.0);
+uniform vec3 rgb_shift_horison = vec3(0.0, 0.0, 0.0);
+uniform vec3 rgb_shift_verti = vec3(0.0, 0.0, 0.0);
 
 // Basic shader inputs
 uniform float time;
@@ -60,9 +58,9 @@ void main() {
 	float tc = tc_phase * tc_noise;
 	uvn.x = uvn.x - tc / vhs_resolution.x * 8.0 * tape_crease_smear;
 	// Décalage RGB
-	vec2 red_uv = uvn + vec2(rgb_shift.r, 0.0);
-	vec2 green_uv = uvn + vec2(rgb_shift.g, 0.0);
-	vec2 blue_uv = uvn + vec2(rgb_shift.b, 0.0);
+	vec2 red_uv = uvn + vec2(rgb_shift_horison.r, rgb_shift_verti.r);
+	vec2 green_uv = uvn + vec2(rgb_shift_horison.g, rgb_shift_verti.g);
+	vec2 blue_uv = uvn + vec2(rgb_shift_horison.b, rgb_shift_verti.b);
 	float r = texture(screen_texture, red_uv).r;
 	float g = texture(screen_texture, green_uv).g;
 	float b = texture(screen_texture, blue_uv).b;

@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/romaric/Documents/prog_graphique/vhs_filter_gl4D",
+            "binaryPath": "/home/romaric/Documents/prog_graphique/vhs_filter_gl4D/filter",
+            "binaryArgs": []
+        }
+    ]
+}
